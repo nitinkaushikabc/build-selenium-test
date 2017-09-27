@@ -78,6 +78,10 @@ public abstract class BaseFramework {
 		// Define fluent wait
 		wait = new FluentWait<WebDriver>(driver).withTimeout(15, TimeUnit.SECONDS).pollingEvery(500, TimeUnit.MILLISECONDS)
 				.ignoring(NoSuchElementException.class);
+		
+		//Define Page Load Timeout
+		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+		
 	}
 
 	protected WebDriver getDriver() {
